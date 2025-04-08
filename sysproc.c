@@ -103,5 +103,11 @@ sys_hw(void)
 int
 sys_fkc(void)
 {
+  int n;
+  argint(0, &n);
+  if(n == 0)
+  {
+    numForks = 0;
+  }
   return numForks;
 }
