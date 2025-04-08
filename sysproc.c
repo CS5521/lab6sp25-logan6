@@ -7,9 +7,12 @@
 #include "mmu.h"
 #include "proc.h"
 
+static int numForks;
+
 int
 sys_fork(void)
 {
+  numForks++;
   return fork();
 }
 
@@ -95,4 +98,10 @@ sys_hw(void)
 {
   cprintf("hello world!\n");
   return 0;
+}
+
+int
+sys_fkc(void)
+{
+  return numForks;
 }
